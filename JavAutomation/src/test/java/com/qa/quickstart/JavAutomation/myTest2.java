@@ -58,7 +58,7 @@ public class myTest2 {
 
 		ExtentTest test = extent.startTest("Correct Navigation");
 		try {
-		test.log(LogStatus.PASS, "Successful, all green.");
+		test.log(LogStatus.PASS, "Successfull, all green!");
 		}catch(AssertionError e) {
 			test.log(LogStatus.FAIL, "Error, Something broke so fix it!");
 			

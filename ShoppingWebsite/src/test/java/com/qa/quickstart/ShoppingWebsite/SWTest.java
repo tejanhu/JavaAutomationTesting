@@ -11,12 +11,18 @@ import org.openqa.selenium.By.ByCssSelector;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 public class SWTest {
 	ChromeDriver myDriver;
+	static ExtentReports extent;
 	
 	@BeforeClass
 	public static void init() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Desktop\\chromedriver.exe");
+		extent= new ExtentReports("C:\\Users\\Admin\\Desktop\\extent2.html", true);
 	}
 	
 	@Before
@@ -34,16 +40,29 @@ public class SWTest {
 		searchbar.clear();
 		searchbar.sendKeys("Dress");
 		myDriver.findElementByCssSelector("#searchbox > button").click();
-//		myDriver.findElementByXPath("//*[@id=\"search_query_top\"]").sendKeys("Dress");
-//		assertEquals("http://automationpractice.com/index.php?controller=search&orderby=position&orderway=desc&search_query=Dress&submit_search=",myDriver.getCurrentUrl());
 		assertEquals("7 results have been found.",myDriver.findElementByClassName("heading-counter").getText());
-
 	}
 	
+	@Test
+	public void test() {
 
+		ExtentTest test = extent.startTest("Correct Navigation");
+		try {
+		test.log(LogStatus.PASS, "Successfull, all green!");
+		}catch(AssertionError e) {
+			test.log(LogStatus.FAIL, "Error, Something broke so fix it!");
+			
+			fail();
+		}finally {
+			test.log(LogStatus.INFO, "Current URL: " + myDriver.getCurrentUrl());
+		extent.endTest(test);
+		}
+	}
+	
 	@After
 	public void tearDown() {
 		myDriver.close();
+		extent.flush();
 	}
 
 }
