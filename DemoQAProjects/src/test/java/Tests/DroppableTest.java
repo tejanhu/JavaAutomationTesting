@@ -39,7 +39,7 @@ public class DroppableTest {
 	@Test
 	public void testSomething() {
 		 DemoQAPage page = PageFactory.initElements(myDriver, DemoQAPage.class);     
-		 page.click();
+		 page.droppableClick();
 		 assertEquals("http://demoqa.com/droppable/",myDriver.getCurrentUrl());
 	
 		 page.drop(myDriver);
