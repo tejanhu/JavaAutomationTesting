@@ -38,23 +38,11 @@ public class DroppableTest {
 	
 	@Test
 	public void testSomething() {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		 DemoQAPage page = PageFactory.initElements(myDriver, DemoQAPage.class);     
 		 page.click();
 		 assertEquals("http://demoqa.com/droppable/",myDriver.getCurrentUrl());
 	
 		 page.drop(myDriver);
-		 try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		 assertEquals("Dropped!",myDriver.findElement(By.id("droppableview")).findElement(By.xpath("//*[@id=\"droppableview\"]/p")).getText());
 		 
 	}
