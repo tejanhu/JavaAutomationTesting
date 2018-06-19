@@ -29,10 +29,17 @@ public class DroppableTest {
 		myDriver = new ChromeDriver();
 		myDriver.manage().window().maximize();
 		String url = "http://demoqa.com/";
+		myDriver.get(url);
 	}
 	
 	@Test
 	public void testSomething() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		 DemoQAPage page = PageFactory.initElements(myDriver, DemoQAPage.class);     
 		 page.click();
 		 assertEquals("http://demoqa.com/droppable/",myDriver.getCurrentUrl());
