@@ -40,6 +40,17 @@ public class DemoQAPage {
 	@FindBy(xpath="//*[@id=\"ui-id-7\"]")
 	private WebElement listItem;
 	
+	@FindBy(xpath="//*[@id=\"menu-item-146\"]/a")
+	private WebElement datePickerButton;
+	
+	@FindBy(xpath="//*[@id=\"datepicker1\"]")
+	private WebElement dateBox;
+	
+	@FindBy(xpath="//*[@id=\"ui-datepicker-div\"]/div/a[2]/span")
+	private WebElement nextButton;
+	
+	@FindBy(xpath="//*[@id=\"ui-datepicker-div\"]/table/tbody/tr[5]/td[5]/a")
+	private WebElement date;
 	
 	public void droppableClick() {
 		droppableButton.click();	
@@ -55,6 +66,10 @@ public class DemoQAPage {
 	
 	public void autocompleteClick(){
 		autocompleteButton.click();
+	}
+	
+	public void datePickerNavClick() {
+		datePickerButton.click();
 	}
 		
 	public void drop(WebDriver myWebdriver) {
@@ -84,6 +99,22 @@ public class DemoQAPage {
 	
 	public boolean isListItem1Present() {
 		return listItem.getText().equals("ActionScript");
+	}
+	
+	public void clickNext() {
+		nextButton.click();
+	}
+	
+	public void selectDay() {
+		date.click();
+	}
+	
+	public void clickDateBox() {
+		dateBox.click();
+	}
+	
+	public boolean verifyDate() {
+		return dateBox.getText().contains(date.getText());
 	}
  
 }
