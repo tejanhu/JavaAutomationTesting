@@ -20,7 +20,7 @@ public class DemoQAPage {
 	private WebElement selectableButton;
 	
 	@FindBy(id="selectable")
-	private WebElement widgetSelectable;
+	public WebElement widgetSelectable;
 	
 	
 	public void droppableClick() {
@@ -39,6 +39,6 @@ public class DemoQAPage {
 	public void select(WebDriver myWebdriver) {
 		widgetSelectable.click();
 		//change this
-		 assertEquals(widgetSelectable.isSelected(),myWebdriver.findElement(By.id("selectable")).isSelected());	
+//		 assertEquals(widgetSelectable.isSelected(),myWebdriver.findElement(By.id("selectable")).isSelected());	
 	}
 }
