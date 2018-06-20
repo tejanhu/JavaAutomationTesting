@@ -44,7 +44,7 @@ public class SelectableTest {
 		 assertEquals("http://demoqa.com/selectable/",myDriver.getCurrentUrl());
 	
 		 page.select(myDriver);
-		 assertEquals(page.widgetSelectable.isSelected(),myDriver.findElement(By.id("selectable")).isSelected());		 
+		 assertEquals(page.widgetObj.isSelected(),myDriver.findElement(By.id("selectable")).isSelected());		 
 	}
 	
 	@Test
