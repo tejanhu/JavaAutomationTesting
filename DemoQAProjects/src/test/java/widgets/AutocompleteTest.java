@@ -44,11 +44,15 @@ public class AutocompleteTest {
 	public void testSomething() {
 		 DemoQAPage page = PageFactory.initElements(myDriver, DemoQAPage.class);     
 		 page.autocompleteClick();
-		 assertEquals("http://demoqa.com/autocomplete/",myDriver.getCurrentUrl());
-		 page.tagClick();
-		 page.enterSomething();
-		 myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 
+		 assertEquals("http://demoqa.com/autocomplete/",myDriver.getCurrentUrl());
+
+		 page.tagClick();
+
+		 page.enterSomething();
+
+		 myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+		
 		 assertEquals(page.isListItem1Present(),myDriver.findElement(By.xpath("//*[@id=\"ui-id-7\"]")).getText().equals("ActionScript"));		 
 	}
 	

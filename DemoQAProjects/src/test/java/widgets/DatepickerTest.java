@@ -62,6 +62,7 @@ public class DatepickerTest {
 //			 
 //		 }
 		 page.selectDay();
+		 page.clickDateBox();
 		 try {
 			 Thread.sleep(5000);
 		 }catch(InterruptedException ie) {
@@ -69,7 +70,7 @@ public class DatepickerTest {
 		 }
 		 myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 
-		 assertEquals(page.verifyDate(),myDriver.findElement(By.cssSelector("#ui-datepicker-div > table > tbody > tr:nth-child(5) > td:nth-child(5) > a")).getText().contains((CharSequence) myDriver.findElement(By.id("ui-state-default")).getText()));		 
+		 assertEquals(page.verifyDate(),myDriver.findElement(By.cssSelector("#ui-datepicker-div > table > tbody > tr:nth-child(5) > td:nth-child(5) > a")).getText().contains((CharSequence) myDriver.findElement(By.id("datepicker1")).getText()));		 
 	}
 	
 	@Test
