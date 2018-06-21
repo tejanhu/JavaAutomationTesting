@@ -2,10 +2,13 @@ package Tests;
 
 import static org.junit.Assert.*;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -37,14 +40,25 @@ public class PHPTravelsHomeTest {
 	public void bookHotel() {
 		PHPTravelsHomePage phpTravelsHomePage = PageFactory.initElements(myDriver, PHPTravelsHomePage.class);  
 		assertEquals("https://www.phptravels.net/",myDriver.getCurrentUrl());
-		phpTravelsHomePage.clickHotelOriginTextField();
-		phpTravelsHomePage.enterHotelOrigin();
+		phpTravelsHomePage.clickHotelOriginTextField(myDriver);
+		myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 		}
 		catch(InterruptedException ie) {
 			
 		}
+		myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		phpTravelsHomePage.enterHotelOrigin(myDriver);
+		myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		try {
+			Thread.sleep(9000);
+		}
+		catch(InterruptedException ie) {
+			
+		}
+		System.out.println(phpTravelsHomePage.verifyHotelIsInLondon());
+		assertEquals(phpTravelsHomePage.verifyHotelIsInLondon(),myDriver.findElement(By.className("select2-input")).getText());
 
 	}
 	

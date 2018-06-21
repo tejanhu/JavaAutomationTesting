@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import java.util.concurrent.TimeUnit;
 
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -39,7 +39,7 @@ public class DemoSiteMainTest {
 	}
 
 	@Test
-	public void createUser() {
+	public void createUser() {		
 		DemoSiteHomePage dsHomePage = PageFactory.initElements(myDriver, DemoSiteHomePage.class); 
 		AddUserPage addUserPage = PageFactory.initElements(myDriver, AddUserPage.class);
 		assertEquals("http://thedemosite.co.uk/",myDriver.getCurrentUrl());
@@ -54,7 +54,7 @@ public class DemoSiteMainTest {
 	}
 	
 	@Test
-	public void logUser() {
+	public void logUser() {	
 		DemoSiteHomePage dsHomePage = PageFactory.initElements(myDriver, DemoSiteHomePage.class);
 		LoginPage loginPage = PageFactory.initElements(myDriver, LoginPage.class);
 		assertEquals("http://thedemosite.co.uk/",myDriver.getCurrentUrl());
