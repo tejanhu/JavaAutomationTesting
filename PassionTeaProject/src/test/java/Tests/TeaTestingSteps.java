@@ -44,15 +44,15 @@ public class TeaTestingSteps {
 	@Then("^I can browse a list of the available products.$")
 	public void browseToAvailableProducts() {
 		myDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		assertEquals(true, myDriver.findElement(By.id("wsb-button-00000000-0000-0000-0000-000451955160")).isDisplayed());
-		assertEquals(true, myDriver.findElement(By.id("wsb-element-00000000-0000-0000-0000-000451959280")).isDisplayed());
-		assertEquals(true, myDriver.findElement(By.id("wsb-element-00000000-0000-0000-0000-000451961556")).isDisplayed());
+		assertEquals(true, myDriver.findElement(By.cssSelector("#wsb-element-00000000-0000-0000-0000-000451933201 > div > div > img")).isDisplayed());
+		assertEquals(true, myDriver.findElement(By.cssSelector("#wsb-element-00000000-0000-0000-0000-000451938003 > div > div > img")).isDisplayed());
+		assertEquals(true, myDriver.findElement(By.cssSelector("#wsb-element-00000000-0000-0000-0000-000451942740 > div > div > img")).isDisplayed());
 	}
 	
 	
 	@When("^I click the checkout button$")
 	public void clickCheckout() {
-		myDriver.findElement(By.cssSelector("#wsb-button-00000000-0000-0000-0000-000451955160")).click();
+		myDriver.findElement(By.cssSelector("#wsb-button-00000000-0000-0000-0000-000451959280 > span")).click();
 	}
 	
 	
