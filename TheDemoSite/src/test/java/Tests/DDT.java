@@ -7,8 +7,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -124,11 +122,11 @@ public class DDT {
 		ArrayList <XSSFCell>usernamesList = new ArrayList<XSSFCell>();
 		ArrayList <XSSFCell>passwordsList = new ArrayList<XSSFCell>();
 		
-		XSSFSheet sheet = wb.getSheetAt(0);
+		XSSFSheet sheet2 = wb.getSheetAt(0);
 		for(int i=1; i<7;i++) {
-			XSSFCell cell1 = sheet.getRow(i).getCell(0);
+			XSSFCell cell1 = sheet2.getRow(i).getCell(0);
 			usernamesList.add(cell1);
-			XSSFCell cell2 = sheet.getRow(i).getCell(1);
+			XSSFCell cell2 = sheet2.getRow(i).getCell(1);
 			passwordsList.add(cell2);
 		}
 		LoginPage loginPage = PageFactory.initElements(myDriver, LoginPage.class);
